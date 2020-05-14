@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int sentence[] = new int[26];
+		for (int i = 0; i <= n; i++) {
+			String st = sc.nextLine();
+			st = st.toUpperCase();
+			for (int j = 0; j < st.length(); j++) {
+				if (st.charAt(j) >= 65 && st.charAt(j) <= 90)
+					sentence[st.charAt(j) - 65]++;
+			}
+		}
+		int max = 0;
+		for (int i = 0; i < 26; i++) {
+			if (sentence[i] > max)
+				max = sentence[i];
+		}
+		for (int i = max; i > 0; i--) {
+			for (int j = 0; j < 26; j++) {
+				if (sentence[j] == i)
+					System.out.println((char) (j + 65) + " " + i);
+			}
+		}
+	}
+}
