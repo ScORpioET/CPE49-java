@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int count = 1;
+		while (sc.hasNext()) {
+			int cases = sc.nextInt();
+			int value[] = new int[cases];
+			for (int i = 0; i < cases; i++) {
+				value[i] = sc.nextInt();
+			}
+			boolean flag = true;
+			if (value[0] < 1)
+				flag = false;
+			for (int i = 0; i < cases - 1; i++) {
+				if (value[i] > value[i + 1])
+					flag = false;
+			}
+			Vector<Integer> vec = new Vector<Integer>();
+			for (int i = 0; i < cases; i++) {
+				if (!flag)
+					break;
+				int temp = 0;
+				for (int j = i; j < cases; j++) {
+					Iterator<Integer> iterator = vec.iterator();
+					temp = value[i] + value[j];
+					while (iterator.hasNext())
+						if (iterator.next() == temp) {
+							flag = false;
+							break;
+						}
+					if (flag)
+						vec.add(temp);
+					else
+						break;
+				}
+			}
+			if (flag)
+				System.out.println("Case #" + (count++) + ": It is a B2-Sequence.");
+			else
+				System.out.println("Case #" + (count++) + ": It is not a B2-Sequence.");
+		}
+	}
+}
