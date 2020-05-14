@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		for (int i = 1; i <= cases; i++) {
+			long a = carculate(sc.next());
+			long b = carculate(sc.next());
+			boolean flag = false;
+			while (b != 0) {
+				long temp = b;
+				b = a % b;
+				a = temp;
+				if (b == 1)
+					flag = true;
+			}
+
+			if (!flag) {
+				SOP("Pair #" + i + ": All you need is love!");
+			} else {
+				SOP("Pair #" + i + ": Love is not all you need!");
+			}
+		}
+	}
+
+	public static long carculate(String n) {
+		long pow = 0;
+		long sum = 0;
+		for (int i = n.length() - 1; i >= 0; i--, pow++) {
+			if (n.charAt(i) == '1') {
+				sum += (long) Math.pow(2, pow);
+			}
+		}
+		return sum;
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
