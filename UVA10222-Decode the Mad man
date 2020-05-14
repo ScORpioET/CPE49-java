@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String st = "1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./";
+		while (sc.hasNext()) {
+			String sentence = sc.nextLine();
+			sentence = sentence.toLowerCase();
+			for (int i = 0; i < sentence.length(); i++) {
+				if (sentence.charAt(i) == ' ') {
+					System.out.print(" ");
+					continue;
+				}
+				for (int j = 0; j < st.length(); j++) {
+					if (sentence.charAt(i) == st.charAt(j)) {
+						System.out.print(st.charAt(j - 2));
+						break;
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
+}
