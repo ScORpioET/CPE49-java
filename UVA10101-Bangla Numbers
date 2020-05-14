@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int count = 1;
+		while (sc.hasNext()) {
+			long num = sc.nextLong();
+			System.out.printf("%4d.", count);
+			count++;
+			if (num == 0) {
+				System.out.print(" 0");
+			} else {
+				carculate(num);
+			}
+			System.out.println();
+		}
+	}
+
+	public static void carculate(long n) {
+		if (n >= 10000000) {
+			carculate(n / 10000000);
+			System.out.print(" kuti");
+			n = n % 10000000;
+		}
+		if (n >= 100000) {
+			carculate(n / 100000);
+			System.out.print(" lakh");
+			n = n % 100000;
+		}
+		if (n >= 1000) {
+			carculate(n / 1000);
+			System.out.print(" hajar");
+			n = n % 1000;
+		}
+		if (n >= 100) {
+			carculate(n / 100);
+			System.out.print(" shata");
+			n = n % 100;
+		}
+		if (n != 0) {
+			System.out.print(" " + n);
+		}
+	}
+
+}
