@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		for (int i = 0; i < n; i++) {
+			int sum = 0;
+			int m = sc.nextInt();
+			int vito[] = new int[m];
+			for (int j = 0; j < m; j++) {
+				vito[j] = sc.nextInt();
+			}
+			Arrays.sort(vito);
+			int mid = (m % 2 == 0) ? (vito[m / 2] + vito[m / 2 - 1]) / 2 : vito[m / 2];
+			for (int j = 0; j < m; j++) {
+				sum += Math.abs(mid - vito[j]);
+			}
+			System.out.println(sum);
+		}
+
+	}
+
+}
