@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = 0;
+		int max_length = 0;
+		Vector<String> vec = new Vector<String>();
+		while (sc.hasNext()) {
+			String st = sc.nextLine();
+			if (st.equals("0"))
+				break;// 自己測試的斷點
+			if (st.length() > max_length)
+				max_length = st.length();
+			vec.add(st);
+			cases++;
+		}
+		for (int i = 0; i < max_length; i++) {
+			int count = 0;
+			for (int j = cases - 1; j > -1; j--) {
+				if (!(i >= vec.get(j).length())) {
+					while (count > 0) {
+						System.out.print(" ");
+						count--;
+					}
+					System.out.print(vec.get(j).charAt(i));
+				} else {
+					count++;
+				}
+			}
+			System.out.println();
+		}
+	}
+}
