@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String country[] = new String[n];
+		for (int i = 0; i < n; i++) {
+			country[i] = sc.next();
+			sc.next();
+			sc.next();
+		}
+		Arrays.sort(country);
+		int count = 1;
+		for (int i = 0; i < n; i++) {
+			if (i == n - 1) {
+				System.out.println(country[i] + " " + count);
+			} else if (country[i].equals(country[i + 1])) {
+				count++;
+			} else {
+				System.out.println(country[i] + " " + count);
+				count = 1;
+			}
+		}
+	}
+}
