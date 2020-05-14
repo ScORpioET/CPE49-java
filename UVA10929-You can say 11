@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			String str = sc.next();
+			if (str.equals("0"))
+				break;
+			int odd = 0, even = 0;
+			for (int i = 0; i < str.length(); i++) {
+				if (i % 2 == 0) {
+					even = even + str.charAt(i) - 48;
+				} else {
+					odd = odd + str.charAt(i) - 48;
+				}
+//str.charAt(i)是取出自串str中位置i的ACSII，而-48的原因是ACSII的0是48。
+			}
+			if ((even - odd) % 11 == 0) {// 11倍數判斷式：偶數位相加-奇數位相加=11的倍數
+				System.out.println(str + " is a multiple of 11.");
+			} else {
+				System.out.println(str + " is not a multiple of 11.");
+			}
+		}
+	}
+}
