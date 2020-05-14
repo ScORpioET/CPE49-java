@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			long member = sc.nextLong();
+			long days = sc.nextLong();
+			long sum = 0;
+			while (sum < days) {
+				sum += member++;
+			}
+			System.out.println(member - 1);
+		}
+	}
+}
