@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		while (cases-- > 0) {
+			int days = sc.nextInt();
+			int parties = sc.nextInt();
+			boolean arr[] = new boolean[days + 1];
+			for (int i = 0; i < parties; i++) {
+				int hartals = sc.nextInt();
+				for (int j = 1; j <= days; j++) {
+					if (!(j % 7 == 6 || j % 7 == 0) && j % hartals == 0)
+						arr[j] = true;
+				}
+			}
+			int count = 0;
+			for (int i = 0; i <= days; i++) {
+				if (arr[i])
+					count++;
+			}
+			SOP(count);
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
