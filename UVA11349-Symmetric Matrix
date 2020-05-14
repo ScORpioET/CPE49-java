@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		for (int i = 0; i < cases; i++) {
+			int tag = 0;
+			sc.next();
+			sc.next();
+			int n = sc.nextInt();
+			long matrix[] = new long[n * n];
+			for (int j = 0; j < n * n; j++) {
+				int value = sc.nextInt();
+				if (value < 0) {
+					tag++;
+				}
+				matrix[j] = value;
+			}
+			if (tag != 0) {
+				System.out.println("Test #" + (i + 1) + ": Non-symmetric.");
+				continue;
+			}
+			for (int j = 0; j < n * n; j++) {
+				if (matrix[j] != matrix[matrix.length - j - 1]) {
+					System.out.println("Test #" + (i + 1) + ": Non-symmetric.");
+					break;
+				} else if (j == matrix.length / 2) {
+					System.out.println("Test #" + (i + 1) + ": Symmetric.");
+					break;
+				} else if (matrix.length % 2 == 0 && j + 1 == matrix.length / 2) {
+					System.out.println("Test #" + (i + 1) + ": Symmetric.");
+					break;
+				}
+			}
+		}
+	}
+};
