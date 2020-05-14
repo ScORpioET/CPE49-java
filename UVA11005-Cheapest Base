@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		for (int i = 0; i < cases; i++) {
+			int value[] = new int[36];
+			for (int j = 0; j < 36; j++) {
+				value[j] = sc.nextInt();
+			}
+			int base = sc.nextInt();
+			SOP("Case " + (i + 1) + ":");
+			for (int j = 0; j < base; j++) {
+				int n = sc.nextInt();
+				int money[] = new int[37];
+				System.out.print("Cheapest base(s) for number " + n + ":");
+				for (int k = 2; k < 37; k++) {
+					int x = n;
+					while (x > 0) {
+						money[k] += value[x % k];
+						x /= k;
+					}
+				}
+				int min = money[2];
+				for (int k = 3; k < 37; k++) {
+					if (min > money[k]) {
+						min = money[k];
+					}
+				}
+				for (int k = 2; k < 37; k++) {
+					if (min == money[k])
+						System.out.print(" " + k);
+				}
+				SOP("");
+			}
+			if(i+1!=cases)
+			SOP("");
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
