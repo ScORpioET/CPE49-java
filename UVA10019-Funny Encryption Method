@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		for (int i = 0; i < cases; i++) {
+			int m = sc.nextInt();
+			String bin = Integer.toBinaryString(m);
+			int _hex = 0;
+			int pow = 0;
+			while (m > 0) {
+				_hex += (int) Math.pow(16, pow++) * (m % 10);
+				m/=10;
+			}
+			String hex = Integer.toBinaryString(_hex);
+			carculate(bin);
+			System.out.print(" ");
+			carculate(hex);
+			SOP("");
+		}
+	}
+
+	public static void carculate(String str) {
+		int count = 0;
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == '1')
+				count++;
+		}
+		System.out.print(count);
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
