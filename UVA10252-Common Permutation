@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			String st1 = sc.nextLine();
+			String st2 = sc.nextLine();
+			int a[] = new int[26];
+			int b[] = new int[26];
+			for (int i = 0; i < st1.length(); i++) {
+				if (st1.charAt(i) >= 97 && st1.charAt(i) <= 122)
+					a[st1.charAt(i) - 97]++;
+			}
+			for (int i = 0; i < st2.length(); i++) {
+				if (st2.charAt(i) >= 97 && st2.charAt(i) <= 122)
+					b[st2.charAt(i) - 97]++;
+			}
+			for (int i = 0; i < 26; i++) {
+				for (int j = 0; j < Math.min(a[i], b[i]); j++) {
+					System.out.print((char) (i + 97));
+				}
+			}
+			System.out.println();
+		}
+	}
+}
