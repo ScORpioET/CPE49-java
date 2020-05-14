@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		for (int i = 0; i < cases; i++) {
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(1);
+			list.add(2);
+			int n = sc.nextInt();
+			System.out.print(n + " = ");
+			if (n < 2) {
+				System.out.print(n);
+			} else {
+				while (list.get((list.size() - 1)) + list.get((list.size() - 2)) <= n) {
+					list.add(list.get((list.size() - 1)) + list.get((list.size() - 2)));
+				}
+				while (!list.isEmpty()) {
+					if (list.get(list.size() - 1) <= n) {
+						n -= list.get(list.size() - 1);
+						System.out.print("1");
+					} else {
+						System.out.print("0");
+					}
+					list.remove(list.size() - 1);
+				}
+			}
+
+			System.out.print(" (fib)");
+			SOP("");
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
