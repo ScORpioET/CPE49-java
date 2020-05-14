@@ -1,0 +1,12 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		SOP(sc.nextLong() * sc.nextLong() * 2);
+	}
+
+	public static void SOP(long x) {
+		System.out.println(x);
+	}
+}
