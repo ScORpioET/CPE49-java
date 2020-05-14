@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int cases = sc.nextInt();
+			int jolly[] = new int[cases];
+			int jolly_dif[] = new int[cases - 1];
+			for (int i = 0; i < cases; i++)
+				jolly[i] = sc.nextInt();
+			for (int i = 0; i < cases - 1; i++) {
+				jolly_dif[i] = Math.abs(jolly[i] - jolly[i + 1]);
+			}
+			int end = cases - 1;
+			int tag = 0;
+			int count[] = new int[end + 1];
+			for (int i = 0; i < jolly_dif.length; i++) {
+				if (jolly_dif[i] >= 0 && jolly_dif[i] <= end)
+					count[jolly_dif[i]]++;
+				if (jolly_dif[i] == 0 || jolly_dif[i] > end) {
+					tag = 1;
+					break;
+				}
+			}
+			if (tag == 0)
+				for (int i = 0; i < count.length; i++) {
+					if (count[i] > 1 || count[0] != 0) {
+						tag = 1;
+						break;
+					}
+				}
+			if (tag == 0)
+				System.out.println("Jolly");
+			else
+				System.out.println("Not jolly");
+		}
+	}
+}
