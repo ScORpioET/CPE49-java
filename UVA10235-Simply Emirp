@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class main {
+	public static int tag = 0;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int a = sc.nextInt();
+			System.out.print(a + " is ");
+			carculate(a);
+			if (tag == 1) {
+				int x = 0;
+				int temp = a;
+				while (a > 0) {
+					x = x * 10 + (a % 10);
+					a /= 10;
+				}
+				if (x != temp)
+					carculate(x);
+			}
+			if (tag == 0) {
+				SOP("not prime.");
+			} else if (tag == 1) {
+				SOP("prime.");
+			} else {
+				SOP("emirp.");
+			}
+			tag = 0;
+		}
+	}
+
+	public static void carculate(int a) {
+		int temp = (int) Math.sqrt(a);
+		boolean flag = true;
+		for (int i = 2; i <= temp; i++) {
+			if (a % i == 0) {
+				flag = false;
+				break;
+			}
+		}
+		if (flag)
+			tag++;
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
