@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			long a = sc.nextLong();
+			long b = sc.nextLong();
+			if (b == 1) {
+				SOP("Boring!");
+				continue;
+			}
+			long temp = b;
+			while (temp < a) {
+				temp *= b;
+			}
+			if (temp == a) {
+				boolean flag = false;
+				while (a > 0) {
+					if (a == 1) {
+						System.out.print(a);
+						a /= b;
+					} else {
+
+						System.out.print(a + " ");
+						a /= b;
+					}
+				}
+			} else {
+				System.out.print("Boring!");
+			}
+			SOP("");
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
