@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		for (int i = 1; i <= n; i++) {
+			int x1 = sc.nextInt();
+			int y1 = sc.nextInt();
+			int x2 = sc.nextInt();
+			int y2 = sc.nextInt();
+			int count = 0;
+			while (x1 != x2 || y1 != y2) {
+				if (y1 == 0) {
+					y1 = x1 + 1;
+					x1 = 0;
+				} else {
+					y1--;
+					x1++;
+				}
+				count++;
+			}
+			SOP("Case " + i + ": " + count);
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
