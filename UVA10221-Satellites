@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		final int r = 6440;
+		while (sc.hasNext()) {
+			int s = sc.nextInt();
+			double a = sc.nextInt();
+			String type = sc.next();
+			if (type.equals("deg"))
+				a = Math.min(a, 360 - a);
+			else
+				a /= 60;
+			double arc = 2 * (r + s) * Math.PI * a / 360;
+			double chord = Math.sqrt(2 * Math.pow(r + s, 2) - 2 * Math.pow(r + s, 2) * Math.cos(a / 180 * Math.PI));
+			System.out.printf("%.6f %.6f", arc, chord);
+			System.out.println();
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
