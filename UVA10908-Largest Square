@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class main {
+	public static int ans = 1;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cases = sc.nextInt();
+		while (cases-- > 0) {
+			int m = sc.nextInt();
+			int n = sc.nextInt();
+			int g = sc.nextInt();
+			SOP(m+" "+n+" "+g);
+			String arr[] = new String[m];
+
+			for (int i = 0; i < m; i++) {
+				arr[i] = sc.next();
+			}
+
+			for (int i = 0; i < g; i++) {
+				int r = sc.nextInt();
+				int c = sc.nextInt();
+				boolean flag = true;
+				int temp = 0;
+				while (flag) {
+					if (c - temp < 0 || c + temp >= n || r - temp < 0 || r + temp >= m) {
+						break;
+					} else {
+						for (int j = r - temp; j <= r + temp; j++) {
+							for (int k = c - temp; k <= c + temp; k++) {
+								if (arr[j].charAt(k) != arr[r].charAt(c)) {
+									flag = false;
+									break;
+								}
+							}
+							if (!flag)
+								break;
+						}
+					}
+					if (flag)
+						temp++;
+				}
+				SOP(temp*2-1);
+			}
+
+		}
+
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
