@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int space = 1;
+		while (sc.hasNext()) {
+			if (space != 1) {
+				SOP("");
+			}
+			space = 0;
+			String str = sc.nextLine();
+			int arr[] = new int[129];
+			for (int i = 0; i < str.length(); i++) {
+				arr[str.charAt(i)]++;
+			}
+			int max = 0;
+			for (int i = 32; i < 129; i++) {
+				if (arr[i] > max)
+					max = arr[i];
+			}
+			int count = 1;
+			while (count <= max) {
+				for (int i = 128; i >= 32; i--) {
+					if (arr[i] == count)
+						System.out.println(i + " " + arr[i]);
+				}
+				count++;
+			}
+		}
+	}
+
+	public static void SOP(int x) {
+		System.out.println(x);
+	}
+
+	public static void SOP(String x) {
+		System.out.println(x);
+	}
+}
