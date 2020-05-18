@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int cases = sc.nextInt();
+			if (cases == 0)
+				break;
+			int top = 1;
+			int bottom = 6;
+			int north = 2;
+			int east = 4;
+			int west = 3;
+			int south = 5;
+			while (cases-- > 0) {
+				String st = sc.next();
+				if (st.equals("north")) {
+					int temp = top;
+					top = south;
+					south = bottom;
+					bottom = north;
+					north = temp;
+				} else if (st.equals("south")) {
+					int temp = top;
+					top = north;
+					north = bottom;
+					bottom = south;
+					south = temp;
+				} else if (st.equals("west")) {
+					int temp = top;
+					top = east;
+					east = bottom;
+					bottom = west;
+					west = temp;
+				}else if(st.equals("east")) {
+					int temp = top;
+					top = west;
+					west = bottom;
+					bottom = east;
+					east = temp;
+				}
+			}
+			SOP(top);
+		}
+	}
+
+	public static void SOP(int n) {
+		System.out.println(n);
+	}
+
+	public static void SOP(String n) {
+		System.out.println(n);
+	}
+
+}
