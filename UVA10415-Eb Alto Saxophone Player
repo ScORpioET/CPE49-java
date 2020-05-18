@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String finger[] = { "c0111001111", "d0111001110", "e0111001100", "f0111001000", "g0111000000", "a0110000000",
+				"b0100000000", "C0010000000", "D1111001110", "E1111001100", "F1111001000", "G1111000000", "A1110000000",
+				"B1100000000" };
+		while (n-- > 0) {
+			int count[] = new int[10];
+			String st = sc.next();
+			String current = "0000000000";
+			for (int i = 0; i < st.length(); i++) {
+				String temp = "";
+				for (int j = 0; j < finger.length; j++) {
+					if (st.charAt(i) == finger[j].charAt(0)) {
+						temp = finger[j].substring(1);
+						break;
+					}
+				}
+				for (int j = 0; j < 10; j++) {
+					if (current.charAt(j) == '0' && current.charAt(j) != temp.charAt(j)) {
+						count[j]++;
+					}
+				}
+				current = temp;
+			}
+			for (int i = 0; i < 10; i++) {
+				if(i!=9) {
+				System.out.print(count[i]+" ");
+				}else 
+					SOP(count[i]);
+			}
+		}
+
+	}
+
+	public static void SOP(int n) {
+		System.out.println(n);
+	}
+
+	public static void SOP(String n) {
+		System.out.println(n);
+	}
+
+}
