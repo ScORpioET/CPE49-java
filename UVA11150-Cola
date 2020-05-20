@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int cola = sc.nextInt();
+			if (cola <= 1)
+				System.out.println(cola);
+			else {
+				int sum = cola;
+				while (cola != 1) {
+					if (cola == 2)
+						cola += 1;
+					sum += cola / 3;
+					cola = cola / 3 + cola % 3;
+				}
+				SOP(sum);
+			}
+		}
+	}
+
+	public static void SOP(int n) {
+		System.out.println(n);
+	}
+
+	public static void SOP(String n) {
+		System.out.println(n);
+	}
+
+}
