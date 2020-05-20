@@ -1,0 +1,84 @@
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int row = sc.nextInt();
+		int col = sc.nextInt();
+		int arr[][] = new int[51][51];
+		while (sc.hasNext()) {
+			int x = sc.nextInt();
+			int y = sc.nextInt();
+			String po = sc.next();
+			int dir = 0;
+			if (po.equals("E"))
+				dir = 1;
+			else if (po.equals("S"))
+				dir = 2;
+			else if (po.equals("W"))
+				dir = 3;
+			String st = sc.next();
+			for (int i = 0; i < st.length(); i++) {
+				int x1 = x;
+				int y1 = y;
+				if (st.charAt(i) == 'R') {
+					if (dir == 3)
+						dir = 0;
+					else
+						dir++;
+				} else if (st.charAt(i) == 'L') {
+					if (dir == 0)
+						dir = 3;
+					else
+						dir--;
+				} else if (st.charAt(i) == 'F') {
+					if (dir == 0)
+						y++;
+					else if (dir == 1)
+						x++;
+					else if (dir == 2)
+						y--;
+					else if (dir == 3)
+						x--;
+					if (x < 0 || y < 0 || x > row || y > col) {
+						if (arr[x1][y1] != 1) {
+							arr[x1][y1] = 1;
+							if (dir == 0)
+								SOP(x1 + " " + y1 + " N LOST");
+							else if (dir == 1)
+								SOP(x1 + " " + y1 + " E LOST");
+							else if (dir == 2)
+								SOP(x1 + " " + y1 + " S LOST");
+							else if (dir == 3)
+								SOP(x1 + " " + y1 + " W LOST");
+							dir = 4;
+							break;
+						} else {
+							x = x1;
+							y = y1;
+						}
+					}
+				}
+			}
+			if (dir != 4) {
+				if (dir == 0)
+					SOP(x + " " + y + " N");
+				else if (dir == 1)
+					SOP(x + " " + y + " E");
+				else if (dir == 2)
+					SOP(x + " " + y + " S");
+				else if (dir == 3)
+					SOP(x + " " + y + " W");
+			}
+		}
+	}
+
+	public static void SOP(int n) {
+		System.out.println(n);
+	}
+
+	public static void SOP(String n) {
+		System.out.println(n);
+	}
+
+}
